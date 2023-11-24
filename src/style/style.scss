@@ -43,13 +43,31 @@ header{
   justify-content: center;
   margin-top: 50px;
 
+
   &-todo{
     width: 500px;
-
+    padding: 20px;
 
     &-add{
       display: flex;
       gap: 20px;
+    }
+
+    &-map{
+      margin-top: 40px;
+
+      &-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        padding-left: 25px;
+        margin-bottom: 25px;
+
+        &-text{
+          width: 75%;
+        }
+      }
     }
   }
 }
