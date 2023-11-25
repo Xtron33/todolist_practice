@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useId, useState} from "react";
 import {ITodo} from "../utils/interface/ITodo.ts";
 import {Button, Icon, TextInput} from "@gravity-ui/uikit";
 import {CirclePlus} from "@gravity-ui/icons";
@@ -37,7 +37,7 @@ function  ToDoList(){
     function AddToDo(){
 
         const copy_todoList: ITodo[] | undefined = todoList.toDos;
-        const toDo: ITodo = {isDone: false, todo: newToDo};
+        const toDo: ITodo = {id: useId(),isDone: false, todo: newToDo};
         if(copy_todoList !== undefined){
             copy_todoList.push(toDo)
         }
@@ -58,7 +58,7 @@ function  ToDoList(){
                     <Button disabled={newToDo.length === 0} onClick={() => AddToDo()} view="action" size="xl"><Icon size={25} data={CirclePlus}></Icon></Button>
                 </div>
                 <div className="container-todo-map">
-                    {todoList.toDos.map((elem, index) => <ToDoCard key={index} select={select} remove={remove} elem={elem} idx={index}/>)}
+                    {todoList.toDos.map((elem, index) => <ToDoCard key={elem.id} select={select} remove={remove} elem={elem} idx={index}/>)}
                 </div>
             </div>
         </div>

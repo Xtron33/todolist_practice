@@ -1,6 +1,7 @@
 import * as React from "react";
 
 export interface ITodo{
+    id: string,
     isDone: boolean,
     todo: string
 }
